@@ -1,0 +1,13 @@
+#popular-products {
+    width: 100%;
+    position: relative;
+    padding : 40px 0px ;
+
+    .popular-products{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap : 50px ;
+        position: relative;   
+    }
+}

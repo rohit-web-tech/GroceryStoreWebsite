@@ -1,0 +1,32 @@
+#empty-cart{
+    width : 100% ;
+    display : flex ;
+    justify-content: center ;
+    align-items: center ;
+    flex-direction: column ;
+    padding-bottom: 40px ;
+    img{
+        height : 300px ;
+    }
+    .text{
+        font-size: 1.3rem ;
+        color : var(--main-theme) ;
+        font-weight: bolder ;
+        margin-top: -10px ;
+        text-align: center ;
+    }
+    button{
+        width : 200px ;
+        margin-top: 10px ;
+        height : 40px ;
+        background-color: var(--main-theme);
+        color : white ;
+        font-weight: bolder ;
+        border : none ;
+        border-radius: 20px ;
+        &:hover{
+            cursor: pointer;
+            background-color: green;
+        }
+    }
+}

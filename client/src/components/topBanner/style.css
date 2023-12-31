@@ -1,0 +1,39 @@
+.top-banner{
+    width : 100% ;
+    height : 280px ;
+    position: relative;
+    display : flex ;
+    justify-content: center ;
+    align-items: center ;
+}
+.top-banner .background{
+    height : 100% ;
+    width : 100% ;
+    position : relative ;
+    opacity: 0.6 ;
+}
+.top-banner .background .lazy-load-image-background{
+    height : 100% ;
+    width : 100% ;
+    position: relative;
+}
+.top-banner .background .lazy-load-image-background img{
+    height : 100% ;
+    width : 100% ;
+    object-fit: cover ;
+    object-position: center ;
+}
+.top-banner-content{
+    position: absolute;
+    width : 90% ;
+    gap : 10px ;
+    color : black ;
+    text-align : center ; 
+}
+.top-banner-content h2{
+    font-weight: bolder ;
+    font-size: 35px;
+}
+.top-banner-content h5{
+    font-size: 18px ;
+}

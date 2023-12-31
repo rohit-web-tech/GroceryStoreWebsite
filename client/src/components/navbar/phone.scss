@@ -1,0 +1,33 @@
+#phone-nav{
+    width : 100% ;
+    height : 100vh ;
+    backdrop-filter : blur(5px);
+    position: fixed;
+    top : 0 ;
+    left : 0;
+    z-index : 200;
+    .phone-nav{
+        background-color: rgb(247, 248, 255) ;
+        float: right;
+        height : 100% ;
+        width : 50% ;
+        padding : 70px 20px ;
+        animation: swipe .5s forwards ;
+        ul{
+            list-style: none;
+            display: flex ;
+            flex-direction: column;
+            gap : 20px ;
+            .active{
+                font-weight: bolder ;
+                color : var(--main-theme);
+            }
+        }
+        .close-nav-btn{
+            position: absolute ;
+            top : 20px ;
+            right : 20px ;
+            font-size: 30px;
+        }
+    }
+}

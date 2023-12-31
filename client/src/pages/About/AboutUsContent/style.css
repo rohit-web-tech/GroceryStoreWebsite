@@ -1,0 +1,44 @@
+#element-card{
+    width : 100% ;
+    position : relative ;
+    padding : 30px 0px ;
+}
+.element-card{
+    width : 100% ;
+    display : grid ;
+    grid-template-columns: repeat(auto-fit,minmax(350px,1fr));
+    gap : 30px ;
+}
+.element-card .image{
+    width : 100%; 
+    height : auto ;
+    position : relative ;
+}
+.element-card .image{
+    height :100%;
+    width : 100% ;
+    position: relative ;
+}
+.image .lazy-load-image-background{
+    height :100%;
+    width : 100% ;
+    position: relative ;
+}
+.image .lazy-load-image-background img{
+    height : 100% ;
+    width : 100% ;
+}
+.element-content{
+    gap:20px ;
+}
+.element-content h1{
+    color : var(--main-theme) ;
+    font-size: 35px ;
+    font-weight: bolder ;
+}
+.element-content p{
+    color : var(--para) ;
+}
+.about-us{
+    text-align: justify;
+}

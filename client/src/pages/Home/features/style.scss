@@ -1,0 +1,83 @@
+@use '../../../mixins.scss' as * ;
+#features {
+    width: 100%;
+    position: relative;
+    padding : 40px 0px ;
+
+    .features {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap : 50px ;
+
+        .feature-cards {
+            width: 100%;
+            display : flex ;
+            justify-content: center ;
+            align-items: center ;
+            flex-wrap: wrap ;
+            gap : 20px ;
+            @include llg{
+                justify-content: space-between;
+            }
+            @include msd{
+                gap : 10px ;
+            }
+            
+            #feature-card {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                gap: 10px;
+                width : 100% ; 
+                @include msd{
+                    width : 350px ;
+                }
+                .icon {
+                    height: 110px ;
+                    width: 110px;
+                    position: relative;
+                    border-radius: 50% ;
+                    border : 5px solid var(--main-theme) ;
+                    background-color:aliceblue;
+
+                    .lazy-load-image-background {
+                        height: 100%;
+                        width: 100%;
+                        position: relative;
+
+                        img {
+                            height: 100%;
+                            width: 100%;
+                            transform: scale(1);
+                        }
+                    }
+                }
+                .icon:hover img{
+                    transform: scale(1.1);
+                    cursor: pointer;
+                }
+                .text-section{
+                    display: flex ;
+                    justify-content: center ;
+                    align-items: center ;
+                    flex-direction: column;
+                    text-align: center;
+                    .heading{
+                        font-size: 25px ;
+                        font-weight: bolder ;
+                    }
+                    .subtitle{
+                        font-size: 15px ;
+                        color : var(--para) ;
+                    }
+                }
+                .text-section:hover .heading{
+                    color : var(--main-theme) ;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

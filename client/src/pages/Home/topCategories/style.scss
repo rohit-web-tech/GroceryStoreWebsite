@@ -1,0 +1,14 @@
+#top-categories {
+    width: 100%;
+    position: relative;
+    padding : 40px 0px ;
+
+    .top-categories {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap : 50px ;
+        position: relative;   
+    }
+}

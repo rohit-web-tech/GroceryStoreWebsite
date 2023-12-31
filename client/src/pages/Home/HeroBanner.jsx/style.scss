@@ -1,0 +1,78 @@
+#hero-banner{
+    width : 100% ;
+    height : 600px ;
+    position : relative ;
+    display : flex ;
+    justify-content: center ;
+    .hero-banner{ 
+        height : 100% ;
+        display : flex ;
+        justify-content: start ;
+        align-items: center ;
+        width: 1400px ;
+        margin : 0px 20px ;
+        position: relative;
+        .background{
+            position: relative  ;
+            height : 100% ;
+            width : 100% ;
+            .lazy-load-image-background {
+                height: 100%;
+                width : 100% ;
+                position: relative;
+                img {
+                    height: 100%;
+                    width : 100% ;
+                    border-radius: 20px ;
+                    object-fit:cover;
+                    object-position: center;
+                }
+            }
+        }
+        .text-section{
+            position : absolute ;
+            left : 20px ;
+            display: flex ;
+            justify-content: center;
+            flex-direction: column ;
+            gap : 30px ;
+            h1{
+                font-size: 3rem ;
+                margin-bottom: -30px ;
+                color : white ;
+            }
+            h3{
+                color : #000 ;
+            }
+            .search-section{
+                width : 100% ;
+                height : 40px ;
+                position: relative;
+                display: flex ;
+                align-items: center ;
+                #search{
+                    width : 100% ;
+                    height : 100% ;
+                    padding: 0px 40px ;
+                    border-radius: 50px ;
+                    border : none ;
+                }
+                .search-icon{
+                    position: absolute;
+                    left : 10px ;
+                    font-size : 20px  ;
+                }
+                .search-btn{
+                    background-color: var(--main-theme);
+                    position: absolute ;
+                    border-radius: 50px ;
+                    font-size: 15px ;
+                    right : 0px ;
+                    padding : 0px 34px ;
+                    height  : 100% ;
+                    border : none ;
+                }
+            }
+        }
+    }
+}

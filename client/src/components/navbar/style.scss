@@ -1,0 +1,143 @@
+@use '../../mixins.scss' as * ;
+#navbar {
+    width: 100%;
+    height : 80px ;
+    position: fixed ;
+    top : 0 ;
+    left : 0 ;
+    padding: 20px 0px;
+    z-index : 100 ;
+    background-color: white ;
+
+    .navbar {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .logo {
+            height: 40px;
+            position: relative;
+            &:hover{
+                cursor : pointer ;
+            }
+            @include ssm{
+                height : 35px ;
+            }
+            .lazy-load-image-background {
+                height: 100%;
+                position: relative;
+
+                img {
+                    height: 100%;
+                }
+            }
+        }
+
+        .nav-list {
+            display: none ;
+            gap: 40px;
+            list-style: none;
+            font-weight: 500;
+            font-size: 17px;
+            @include mmd{
+                display: flex;
+            }
+
+            .nav-btn:hover {
+                cursor: pointer;
+                color: var(--main-theme);
+            }
+
+            .active {
+                color: var(--main-theme);
+                font-weight: bold;
+            }
+        }
+
+        .icons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            font-size: 22px;
+            
+            @include ssm{
+                gap : 20px ;
+                font-size: 18px;
+            }
+            @include mmd{
+                gap : 40px ;
+            }
+
+            .cart {
+                display: flex;
+                width: 40px;
+                height: 40px;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                position: relative;
+                background-color: #41de397b;
+                &:hover{
+                    cursor: pointer;
+                    background-color: green ;
+                }
+                &:hover .cart-icon{
+                    color : white ;
+                }
+                @include ssm{
+                    height : 30px ;
+                    width : 30px ;
+                }
+                .cart-icon {
+                    color: green;
+                }
+                
+                .cart-count {
+                    position: absolute;
+                    top: -10px;
+                    right: -10px;
+                    background-color: var(--main-theme);
+                    height: 25px;
+                    width: 25px;
+                    font-size: 14px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 50%;
+                    @include ssm{
+                        font-size: 12px;
+                        height : 20px ;
+                        width : 20px ;
+                    } 
+                }
+            }
+            .user{
+                display: flex;
+                width: 40px;
+                height: 40px;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                position: relative;
+                background-color: #2021247b;
+                color: rgb(23, 23, 23);
+                &:hover{
+                    cursor: pointer;
+                    background-color: black ;
+                    color : white ;
+                }
+                @include ssm{
+                    height : 30px ;
+                    width : 30px ;
+                }
+            }
+            #side-menu{
+                display: block;
+                @include mmd{
+                    display: none;
+                }
+            }
+        }
+    }
+}
