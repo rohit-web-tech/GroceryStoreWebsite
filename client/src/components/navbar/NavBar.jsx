@@ -1,14 +1,16 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './style.scss';
 import ContentWrapper from '../contentWrapper/ContentWrapper';
 import Img from '../lazyloading/Img';
 import logo from '../../assets/logo.png'
 import { useNavigate } from 'react-router-dom';
 import PhoneNav from './PhoneNav';
+import {useSelector} from 'react-redux' ;
 
-const NavBar = ({cartItems}) => {
+const NavBar = () => {
     const navigate = useNavigate();
     const [showSideMenu,setShowSideMenu] = useState(false);
+    const cartItems = useSelector(state=>state.cart.cartItems);
 
     const showMenu=()=>{
         setShowSideMenu(true);
@@ -26,7 +28,7 @@ const NavBar = ({cartItems}) => {
                     </div>
                     <ul className="nav-list">
                         <li className="nav-btn active" onClick={()=>{navigate('/')}}>Home</li>
-                        <li className="nav-btn" onClick={()=>{navigate('/shop')}}>Shop Now</li>
+                        <li className="nav-btn" onClick={()=>{navigate('/shop/all')}}>Shop Now</li>
                         <li className="nav-btn" onClick={()=>{navigate('/about')}}>About Us</li>
                         <li className="nav-btn" onClick={()=>{navigate('/contact')}}>Contact Us</li>
                     </ul>

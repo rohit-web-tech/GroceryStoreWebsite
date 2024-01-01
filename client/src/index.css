@@ -16,3 +16,8 @@
 body{
     padding-top : 80px ;
 }
+#loading{
+    height : 97vh ;
+    width : 100% ;
+    position: relative ;
+}

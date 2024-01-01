@@ -3,7 +3,7 @@ import Img from '../../../../components/lazyloading/Img'
 
 export default function AdCard1(props) {
   return (
-    <div className={`ad-card1 flex-box justify-center flex-column ${props.type}`}>
+    <div onClick={()=>{props?.handleOnClick(props?.productCategory)}} className={`ad-card1 flex-box justify-center flex-column ${props.type}`}>
       <div className="background">
         <Img src={props.bg}/>
       </div>

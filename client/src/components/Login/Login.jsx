@@ -6,10 +6,13 @@ import './style.scss'
 import { useNavigate } from 'react-router-dom';
 import { fetchPostDataFromApi } from '../../utiles/api';
 import { message} from 'antd';
+import { setUserLoggedIn } from '../../slice/authenticationSlice';
+import {useDispatch} from 'react-redux' ;
 
-const Login = (props) => {
+const Login = () => {
     const [messageApi, contextHolder] = message.useMessage();
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const [userData,setUserData] = useState({
         "email" : '' ,
         "password" : ''
@@ -28,14 +31,14 @@ const Login = (props) => {
                     messageApi.open({
                         type: 'success',
                         content: 'You have logged in successfully',
-                      });
+                    });
                     setUserData({
                         "email" : '' ,
                         "password" : ''
                     });
                     localStorage.setItem('srpcuser',JSON.stringify(res.user[0]));
-                    props.setLoggedIn(true);
                     setTimeout(()=>{
+                        dispatch(setUserLoggedIn(true));
                         navigate('/user') ;
                     },1000)
                 }else{
@@ -67,7 +70,7 @@ const Login = (props) => {
             <form>
                 <input type="email" name="email" id="email" className='input-box' placeholder='Enter Your Email' value={userData.email} onChange={handleOnChange}/>
                 <input type="password" name="password" id="password" className='input-box' placeholder='Enter Your Password' value={userData.password} onChange={handleOnChange}/>
-                <input type="submit" value="Sign In" id="login-btn" onClick={handleLoginUser}/>
+                <input type="submit" value="Login" id="login-btn" onClick={handleLoginUser}/>
             </form>
         </div>
         <div className="poster-section">

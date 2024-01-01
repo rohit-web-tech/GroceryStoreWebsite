@@ -14,7 +14,7 @@ const PhoneNav = (props) => {
           }}>Home</li>
           <li className='nav-item' onClick={()=>{
             props.removeMenu();
-            navigate('/shop');
+            navigate('/shop/all');
           }}>Shop</li>
           <li className='nav-item' onClick={()=>{
             props.removeMenu();

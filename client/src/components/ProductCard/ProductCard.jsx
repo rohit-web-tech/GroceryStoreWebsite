@@ -4,12 +4,16 @@ import "./style.scss"
 import Img from "../lazyloading/Img";
 import { fetchPostDataFromApi } from "../../utiles/api";
 import {message} from 'antd' ;
+import {useSelector,useDispatch} from 'react-redux' ;
+import { updateCart } from "../../slice/cartSlice";
 
-const ProductCard = ({product,setCartItems,cartItems}) => {
+const ProductCard = ({product}) => {
     const [messageApi, contextHolder] = message.useMessage();
     const [alreadyAdded,setAlreadyAdded] = useState(false) ; 
     const [loading,setLoading] = useState(false) ;
     const loggedInUser = JSON.parse(localStorage.getItem('srpcuser'));
+    const cartItems = useSelector(state=>state.cart.cartItems);
+    const dispatch = useDispatch();
     function cartCheck(){
             cartItems?.forEach(cartItem=>{
                    if(cartItem?.productId === product?._id)
@@ -37,7 +41,7 @@ const ProductCard = ({product,setCartItems,cartItems}) => {
                         type: 'success',
                         content: 'Product Added to cart Successfully.',
                     });
-                    setCartItems(res.cartItems);
+                    dispatch(updateCart(res.cartItems));
                 }else{
                     messageApi.open({
                         type: 'warning',

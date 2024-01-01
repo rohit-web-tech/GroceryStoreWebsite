@@ -12,7 +12,7 @@ const EmptyCart = () => {
       <div className="text">
         <h3>You haven't ordered anything yet!!</h3>
       </div>
-        <button onClick={()=>{navigate('/shop')}}>Order Now</button>
+        <button onClick={()=>{navigate('/shop/all')}}>Order Now</button>
     </div>
   )
 }

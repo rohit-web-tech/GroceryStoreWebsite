@@ -4,10 +4,14 @@ import useFetch from '../../../hooks/useFetch';
 import logo from '../../../assets/logo.png'
 import { useNavigate } from 'react-router-dom';
 import {message} from 'antd' ;
+import {useSelector,useDispatch} from 'react-redux' ;
+import { updateCart , setOrderPlaced} from '../../../slice/cartSlice';
 
-export default function CartCheckOut({ cartItems, setOrderPlaced, setCartItems ,contextHolder,modal}) {
+export default function CartCheckOut({modal}) {
     const navigate = useNavigate();
     const { data } = useFetch('/getPaymentKey');
+    const dispatch = useDispatch();
+    const cartItems=useSelector(state=>state.cart.cartItems);
     const loggedInUser = JSON.parse(localStorage.getItem('srpcuser'));
     let totalAmount = 0;
     cartItems?.forEach(cartItem => {
@@ -49,8 +53,8 @@ export default function CartCheckOut({ cartItems, setOrderPlaced, setCartItems ,
                                 fetchPostDataFromApi('/paymentVerification', { response, cartItems, userId: loggedInUser._id , amount:res.order.amount})
                                 .then(res => {
                                     if (res.success) {
-                                        setOrderPlaced(true);
-                                            setCartItems(res.cartItems);
+                                            dispatch(setOrderPlaced(true));
+                                            dispatch(updateCart(res.cartItems));
                                             navigate(`/paymentVerify?reffrence=${res.paymentId}`);
                                         }
                                     })

@@ -7,7 +7,7 @@ import {
 } from "react-icons/bs";
 import Card from './Card';
 
-const Carousel = ({data,setCartItems,cartItems}) => {
+const Carousel = ({data}) => {
   const carouselContainer = useRef();
   const loading = false;
   const navigation = (dir) => {
@@ -52,7 +52,7 @@ const Carousel = ({data,setCartItems,cartItems}) => {
         (<div className="carouselItems" ref={carouselContainer} >
           {data?.map(product=>{
             return (
-              <Card product={product} key={product._id} productId={product._id} setCartItems={setCartItems} cartItems={cartItems}/>
+              <Card product={product} key={product._id} productId={product._id}/>
             )
           })}
         </div>) : (

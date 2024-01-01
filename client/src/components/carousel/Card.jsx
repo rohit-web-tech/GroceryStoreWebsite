@@ -4,12 +4,16 @@ import Img from "../lazyloading/Img";
 import { useNavigate } from "react-router-dom";
 import { fetchPostDataFromApi } from "../../utiles/api";
 import { message } from "antd";
+import {useSelector,useDispatch} from 'react-redux' ;
+import { updateCart } from "../../slice/cartSlice";
 
-const Card = ({ product, productId, setCartItems, cartItems }) => {
+const Card = ({ product, productId}) => {
   const [messageApi, contextHolder] = message.useMessage();
   const [alreadyAdded, setAlreadyAdded] = useState(false);
   const [loading, setLoading] = useState(false);
   const loggedInUser = JSON.parse(localStorage.getItem("srpcuser"));
+  const cartItems = useSelector(state=>state.cart.cartItems) ;
+  const dispatch = useDispatch();
   function cartCheck() {
     cartItems?.forEach((cartItem) => {
       if (cartItem?.productId === product?._id) setAlreadyAdded(true);
@@ -35,7 +39,7 @@ const Card = ({ product, productId, setCartItems, cartItems }) => {
                 type: "success",
                 content: "Product Added to cart Successfully.",
               });
-              setCartItems(res.cartItems);
+              dispatch(updateCart(res.cartItems));
             } else {
               messageApi.open({
                 type: "warning",
